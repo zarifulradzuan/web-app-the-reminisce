@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		div{
+			border: 2px var(--accent-color) solid;
+			width: 700px;
+			margin: auto;
+		}
+		form{
+			margin: 0 auto;
+			width: 500px;
+		}
+		form p{
+			text-indent: -10px;
+		}
+
+		* {box-sizing: border-box;}
+
+		input, a {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		  margin-top: 6px;
+		  margin-bottom: 16px;
+		  resize: vertical;
+		}
+
+		input[type=submit], a {
+			width: 30%;
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+
+		input[type=submit]:hover, a:hover {
+		  background-color: #45a049;
+		}
+
+		a{
+			padding: 10px 20px;
+		}
+
+		.container {
+		  border-radius: 5px;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<h1 align="center">Sign Up Page</h1>
+	 <div class="container">
+	  <form action="">
+	    <label for="username">Username</label>
+	    <input type="text" id="username" name="username" placeholder="Your username..">
+
+	    <label for="username">Password</label>
+	    <input type="password" id="password" name="password" placeholder="Your password..">
+	    <input type="submit" value="Submit">
+	    <a href="index.html">Cancel</a>
+
+	  </form>
+	</div> 
+</body>
+</html>

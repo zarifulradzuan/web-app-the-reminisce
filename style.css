@@ -1,0 +1,19 @@
+:root{
+	--accent-color: #CD3333;
+}
+*{
+	font-family: 'Segoe Ui';
+	font-weight: 400;
+}
+body{
+				background-color: #FFDAD3;
+			}
+
+a{
+				text-decoration: none;
+			}
+
+hr{
+				color: var(--accent-color);
+				border-width: 2px;
+			}
