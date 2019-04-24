@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quiz</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<style>
+			div.memories{
+				width: 70%;
+				margin: auto;
+				border: 1px var(--accent-color) solid;
+				padding: 20px;
+				background: white;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			function check(){
+				if(document.quiz.response.value==document.quiz.answer.value)
+					document.getElementById("message").innerHTML="CORRECT";
+				else
+					document.getElementById("message").innerHTML="INCORRECT";
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul class="menu">
+			  <li><a href="#home">Home</a></li
+			  ><li><a href="#news">Cue Picture</a></li
+			  ><li><a href="#contact">Quiz</a></li
+			  ><li><a href="#game">Games</a></li
+			  ><li><a href="#journal">Journal</a></li
+			  ><li><a href="#about">About Us</a></li
+			  ><li><a href="#logout">Logout
+			  </a></li>
+			</ul>
+			<br>
+			<div class="breadcrumb">
+				<a href="">Home</a> >> <a href="" >Cue Picture</a> >> <a href="" >Birthday Celebration</a>
+			</div>
+			<br>
+			<div align="center" class="memories">
+				<div align="left">
+					<form name="quiz" method="POST">
+						<p>Do you remember your daughter's name?</p>
+						<input type="hidden" name="answer" value="nadhirah">
+						<input type="radio" name="response" checked value="nadhirah">Nadhirah<br>
+						<input type="radio" name="response" value="qistina">Qistina<br>
+						<div id="message"></div>
+						<input type="button" onclick="check()" value="Check">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

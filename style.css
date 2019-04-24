@@ -5,15 +5,70 @@
 	font-family: 'Segoe Ui';
 	font-weight: 400;
 }
+html{
+	height: 100%;
+}
 body{
-				background-color: #FFDAD3;
-			}
+	height: 100%;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+}
 
 a{
 				text-decoration: none;
+				color: black;
 			}
 
 hr{
 				color: var(--accent-color);
 				border-width: 2px;
 			}
+div.wrapper{
+	background: #FFDAD3; 
+	width: 70%; 
+	margin: auto; 
+	margin-top: 0; 
+	padding: 0; 
+	height: 100vh; 
+	box-shadow: 1px 3px 3px 2px #888888;"
+}
+
+div.breadcrumb{
+	margin: auto; 
+	padding-left: 21%;
+}
+
+ul.menu {
+	text-align: center;	
+	list-style-type: none;
+	margin: auto;
+	background-color: var(--accent-color);	
+	box-shadow: 2px 2px 2px;
+}
+
+ul.menu li {
+	display: inline-block;
+  	border: 1px black solid;
+  	
+}
+
+ul.menu li a {
+	
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+ul.menu li a:hover {
+  background-color: #111111;
+}
+
+div.memories input[type=button]{
+	padding-top: 50px;
+	border: none;
+	background: none;
+	cursor: pointer;
+}

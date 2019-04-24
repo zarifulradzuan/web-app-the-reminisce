@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+  <title>Game</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="matchstyle.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+
+  var correctCards = 0;
+  $( init );
+
+  function init() {
+
+    // Hide the success message
+    $('#successMessage').hide();
+    $('#successMessage').css( {
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0
+    } );
+
+    // Reset the game
+    correctCards = 0;
+    $('#cardPile').html( '' );
+    $('#cardSlots').html( '' );
+
+    // Create the pile of shuffled cards
+    var numbers = [ 1, 2, 3, 4];//, 5, 6, 7, 8, 9, 10 ];
+    class Family{
+      constructor(relation, name){
+        this.relation=relation;
+        this.name=name;
+      }
+      getName(){
+        return this.name;
+      }
+      getRelation(){
+        return this.relation;
+      }
+    }
+    var family1 = new Family("Daughter", "Nadhirah");
+    var family2 = new Family("Father", "Kassim");
+    var family3 = new Family("Son", "Nazri");
+    var family4 = new Family("Mother", "Salomah");
+    var families = [family1, family2, family3, family4];
+    var terms = ["Daughter's Name","Father's Name" , "Son's Name", "Mother's Name"];//, '5', '6', '7', '8', '9', '10' ];
+    
+
+    for ( var i=0; i<4; i++ ) {
+      $('<div>' + families[i].getRelation() + "'s Name</div>").data( 'number', families[i].getRelation() ).attr( 'id', 'card'+numbers[i] ).appendTo( '#cardPile' ).draggable( {
+        
+        stack: '#cardPile div',
+        cursor: 'move',
+        revert: true
+      } );
+    }
+      function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+    shuffle(families);
+    // Create the card slots
+    var words = [ 'Kassim', 'Nadhirah', 'Salomah', 'Nazri'];//, 'five', 'six', 'seven', 'eight', 'nine', 'ten' ];
+    for ( var i=0; i<4; i++ ) {
+      $('<div>' + families[i].getName() + '</div>').data( 'number', families[i].getRelation() ).appendTo( '#cardSlots' ).droppable( {
+        accept: '#cardPile div',
+        hoverClass: 'hovered',
+        drop: handleCardDrop
+      } );
+    }
+
+  }
+
+  function handleCardDrop( event, ui ) {
+    var slotNumber = $(this).data( 'number' );
+    var cardNumber = ui.draggable.data( 'number' );
+
+    // If the card was dropped to the correct slot,
+    // change the card colour, position it directly
+    // on top of the slot, and prevent it being dragged
+    // again
+
+    if ( slotNumber == cardNumber ) {
+      ui.draggable.addClass( 'correct' );
+      ui.draggable.draggable( 'disable' );
+      $(this).droppable( 'disable' );
+      ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+      ui.draggable.draggable( 'option', 'revert', false );
+      correctCards++;
+    } 
+    
+    // If all the cards have been placed correctly then display a message
+    // and reset the cards for another go
+
+    if ( correctCards == 4 ) {
+      $('#successMessage').show();
+      $('#successMessage').animate( {
+        left: '380px',
+        top: '200px',
+        width: '400px',
+        height: '100px',
+        opacity: 1
+      } );
+    }
+
+  }
+
+  </script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <ul class="menu">
+        <li><a href="#home">Home</a></li
+        ><li><a href="#news">Cue Picture</a></li
+        ><li><a href="#contact">Quiz</a></li
+        ><li><a href="#game">Games</a></li
+        ><li><a href="#journal">Journal</a></li
+        ><li><a href="#about">About Us</a></li
+        ><li><a href="#logout">Logout
+        </a></li>
+      </ul>
+      <br>
+      <div class="breadcrumb">
+        <a href="">Home</a> >> <a href="" >Cue Picture</a> >> <a href="" >Birthday Celebration</a>
+      </div>
+      <div id="content">
+        <div id="cardPile"> </div>
+        <div id="cardSlots"> </div>
+        <div id="successMessage">
+          <h2>Congratulations!</h2>
+          <button onclick="init()">Play Again</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+

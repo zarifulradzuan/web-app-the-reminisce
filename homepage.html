@@ -4,21 +4,23 @@
 		<title>Homepage</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<style>
-			ul {
+			ul.horizontal-list {
 				text-align: center;	
 				list-style-type: none;
 				margin: auto;
-				overflow: hidden;
 				background-color: var(--accent-color);
+				
+				box-shadow: 2px 2px 2px;
 			}
 
 			li {
 				display: inline-block;
-			  
+			  	border: 1px black solid;
+
 			}
 
 			li a {
-				border: 1px white solid;
+				
 			  display: block;
 			  color: white;
 			  text-align: center;
@@ -29,20 +31,38 @@
 			li a:hover {
 			  background-color: #111111;
 			}
+
+			table.memories{
+				margin: auto;
+				align-content: center;
+				border-spacing: 10px;
+			}
+
+			td{
+				border: 1px var(--accent-color) solid;
+				padding: 20px;
+				background: white;
+			}
 		</style>
 	</head>
 	<body>
-
-		<ul>
-		  <li><a href="#home">Home</a></li
-		  ><li><a href="#news">Cue Picture</a></li
-		  ><li><a href="#contact">Quiz</a></li
-		  ><li><a href="#about">Games</a></li
-		  ><li><a href="#about">Journal</a></li
-		  ><li><a href="#about">About Us</a></li
-		  ><li><a href="#about">Logout
-		  </a></li>
-		</ul>
-
+		<div class="wrapper">
+			<ul class="menu">
+			  <li><a href="#home">Home</a></li
+			  ><li><a href="#news">Cue Picture</a></li
+			  ><li><a href="#contact">Quiz</a></li
+			  ><li><a href="#about">Games</a></li
+			  ><li><a href="#about">Journal</a></li
+			  ><li><a href="#about">About Us</a></li
+			  ><li><a href="#about">Logout
+			  </a></li>
+			</ul>
+			<h1 align="center">Welcome back yournamehere</h1>
+			<div align="center" style="padding-top: 10%">
+				<video width="400" height="300" controls style="border-radius: 10px">
+					<source src="movie.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
 	</body>
 </html>
